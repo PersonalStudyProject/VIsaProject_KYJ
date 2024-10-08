@@ -1,0 +1,72 @@
+springdoc:
+  packages-to-scan: com.ohgiraffers.VISAProject
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/visa_db?serverTimezone=Asia/Seoul
+    username: ohgiraffers
+    password: ohgiraffers
+  mail:
+    host: smtp.gmail.com   # smtp서버 주소
+    port: 587
+    username: yeonjinkn.n@gmail.com
+    password: hbuu ovsk nect ntoo
+    properties:
+      mail:
+        smtp:
+          auth: true
+        starttls:
+          enable: true   # starttls를 사용할 경우
+    default-encoding: UTF-8
+    logging:
+      level:
+        org.springframework.mail: DEBUG
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+#        dialect: org.hibernate.dialect.MySQLDialect
+        show_sql: true
+        format_sql: true
+        transaction.jta.platform: com.atomikos.icatch.jta.hibernate4.AtomikosJtaPlatform # JTA 플랫폼 설정
+  jwt:
+    key: yeonjin
+    time: 1800000
+
+atomikos:
+  datasource:
+    user:
+      unique-name: userDataSource
+      xa-data-source-class: com.mysql.cj.jdbc.MysqlXADataSource
+      xa-properties:
+        url: jdbc:mysql://localhost:3306/visa_db?serverTimezone=Asia/Seoul
+        user: ohgiraffers
+        password: ohgiraffers
+  transaction:
+    unique-name: userTransactionManager
+
+web:
+  resources:
+    static-locations: classpath:/static/,file:uploads/
+
+servlet:
+  multipart:
+    enabled: true
+    max-file-size: 100MB
+    max-request-size: 100MB
+
+mvc:
+  throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
