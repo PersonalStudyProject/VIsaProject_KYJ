@@ -17,7 +17,7 @@
 ### 🧑‍🤝‍🧑 `멤버구성`
  - 팀장: 강연진 
  - 팀원2: 권보현
- - 
+   
 ### ⚙️ `개발 환경`
 
 - CSS . Html . java . JavaScript . Spring Framework . spring security. MySql . jpa. jta. jwt. webpack. node.js
