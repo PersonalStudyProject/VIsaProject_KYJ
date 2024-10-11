@@ -1,0 +1,27 @@
+springdoc:
+  packages-to-scan: com.yeonjin.chatproject
+
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/chatdb?serverTimezone=Asia/Seoul
+    username: yeonjin
+    password: yeonjin
+    data:
+      mongodb:
+        uri: mongodb://localhost:27017/chat
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
